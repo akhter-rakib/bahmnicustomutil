@@ -1,0 +1,2 @@
+org\openmrs\module\bahmnicustomutil\extension\html\AdminList.class
+org\openmrs\module\bahmnicustomutil\web\controller\BahmnicustomutilController.class

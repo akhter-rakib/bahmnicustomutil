@@ -1,0 +1,6 @@
+org\openmrs\module\bahmnicustomutil\api\BahmnicustomutilService.class
+org\openmrs\module\bahmnicustomutil\api\dao\BahmnicustomutilDao.class
+org\openmrs\module\bahmnicustomutil\api\impl\BahmnicustomutilServiceImpl.class
+org\openmrs\module\bahmnicustomutil\Item.class
+org\openmrs\module\bahmnicustomutil\BahmnicustomutilActivator.class
+org\openmrs\module\bahmnicustomutil\BahmnicustomutilConfig.class
