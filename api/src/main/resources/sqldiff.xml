@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqldiff PUBLIC "-//OpenMRS//DTD OpenMRS SQL Diff Config 1.0//EN" "http://resources.org.openmrs.org/doctype/sqldiff-1.0.dtd">
+
+<sqldiff version="1.0">
+	<help>
+		USE:
+			The diffs are ordered by data model version number.
+			The script can be run in a top down fashion and is
+			expected to not fail or overwrite old data
+		
+		EXPECT:
+			- "use business-database-name;" was called prior to
+			   calling this script
+	</help>
+
+<!-- 
+	<diff>
+		<version>1.0-SNAPSHOT</version>
+		<author>bharatak</author>
+		<date></date>
+		<description></description>
+		<sql></sql>
+	</diff>
+ -->
+	<diff>
+		<version>0.1.20</version>
+		<author>Rakib</author>
+		<date>Oct 13th 2020</date>
+		<description>
+			Create table Custom Location view
+		</description>
+		<sql>
+			CREATE OR REPLACE VIEW  custom_location AS
+			SELECT l.`location_id` AS id, l.`name`, l.`uuid`, ltn.name AS location_tag_name FROM `location_tag_map` AS lt
+			INNER JOIN `location` AS l ON lt.`location_id`=l.`location_id`
+			INNER JOIN `location_tag` AS ltn ON ltn.`location_tag_id` = lt.location_tag_id
+			WHERE ltn.`name` = 'OpdConsultationRoom' OR  ltn.`name` = 'OpdInternalReferredRoom';
+		</sql>
+	</diff>
+	
+</sqldiff>
