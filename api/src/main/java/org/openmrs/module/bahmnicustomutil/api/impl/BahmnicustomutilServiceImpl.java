@@ -54,7 +54,7 @@ public class BahmnicustomutilServiceImpl extends BaseOpenmrsService implements B
 	}
 	
 	@Override
-	public List<CustomLocation> getLocationByAll() {
-		return dao.getLocationByAll();
+	public List<CustomLocation> getLocationBylocationTagName(String locationTagName) {
+		return dao.getLocationBylocationTagName(locationTagName);
 	}
 }

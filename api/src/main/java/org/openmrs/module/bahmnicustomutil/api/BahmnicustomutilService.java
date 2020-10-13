@@ -49,5 +49,5 @@ public interface BahmnicustomutilService extends OpenmrsService {
 	@Transactional
 	Item saveItem(Item item) throws APIException;
 	
-	public List<CustomLocation> getLocationByAll();
+	public List<CustomLocation> getLocationBylocationTagName(String locationTagName);
 }

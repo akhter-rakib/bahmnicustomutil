@@ -3,11 +3,12 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="org.openmrs.module.bahmnicustomutil.model">
     <class name="CustomLocation"
-           table="loc">
+           table="custom_location">
         <id name="id" type="int" column="id" unsaved-value="0">
             <generator class="native"/>
         </id>
         <property name="name" column="name" />
         <property name="uuid" column="uuid"/>
+        <property name="location_tag_name" column="location_tag_name"/>
     </class>
 </hibernate-mapping>

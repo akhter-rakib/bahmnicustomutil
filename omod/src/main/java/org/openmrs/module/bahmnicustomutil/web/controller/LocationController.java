@@ -18,25 +18,25 @@ import java.util.List;
 
 @Controller
 public class LocationController {
-
-    @Autowired
-    private LocationService locationService;
-
-    @Autowired
-    private BahmnicustomutilService bahmnicustomutilService;
 	
-    @RequestMapping(value = "/module/bahmnicustomutil/greeting", method = RequestMethod.GET)
-    @ResponseBody
-    public String test() {
-        return "Hello Everyone";
-    }
-
-    @RequestMapping(value = "/module/bahmnicustomutil/getLocationBylocationTagName", method = RequestMethod.GET)
-    @ResponseBody
-    public CustomLocationBuilder getLocationBylocationTagName() {
-        CustomLocationBuilder customLocationBuilder = new CustomLocationBuilder();
-        customLocationBuilder.setResults(bahmnicustomutilService.getLocationByAll());
-        return customLocationBuilder;
-
-    }
+	@Autowired
+	private LocationService locationService;
+	
+	@Autowired
+	private BahmnicustomutilService bahmnicustomutilService;
+	
+	@RequestMapping(value = "/module/bahmnicustomutil/greeting", method = RequestMethod.GET)
+	@ResponseBody
+	public String test() {
+		return "Hello Everyone";
+	}
+	
+	@RequestMapping(value = "/module/bahmnicustomutil/getLocationBylocationTagName", method = RequestMethod.GET)
+	@ResponseBody
+	public CustomLocationBuilder getLocationBylocationTagName(
+	        @RequestParam(value = "locationTagName", required = false) String locationTagName) {
+		CustomLocationBuilder customLocationBuilder = new CustomLocationBuilder();
+		customLocationBuilder.setResults(bahmnicustomutilService.getLocationBylocationTagName(locationTagName));
+		return customLocationBuilder;
+	}
 }

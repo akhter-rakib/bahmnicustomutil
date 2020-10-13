@@ -39,10 +39,9 @@ public class BahmnicustomutilDao {
 		return item;
 	}
 	
-	public List<CustomLocation> getLocationByAll() {
+	public List<CustomLocation> getLocationBylocationTagName(String locationTagName) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(CustomLocation.class);
+		criteria.add(Restrictions.eq("location_tag_name", locationTagName));
 		return criteria.list();
 	}
-	
-	;
 }
