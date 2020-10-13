@@ -14,7 +14,10 @@ import org.openmrs.api.APIException;
 import org.openmrs.api.OpenmrsService;
 import org.openmrs.module.bahmnicustomutil.BahmnicustomutilConfig;
 import org.openmrs.module.bahmnicustomutil.Item;
+import org.openmrs.module.bahmnicustomutil.model.CustomLocation;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * The main service of this module, which is exposed for other modules. See
@@ -45,4 +48,6 @@ public interface BahmnicustomutilService extends OpenmrsService {
 	@Authorized(BahmnicustomutilConfig.MODULE_PRIVILEGE)
 	@Transactional
 	Item saveItem(Item item) throws APIException;
+	
+	public List<CustomLocation> getLocationByAll();
 }

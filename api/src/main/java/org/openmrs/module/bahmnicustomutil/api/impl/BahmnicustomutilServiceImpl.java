@@ -3,7 +3,7 @@
  * v. 2.0. If a copy of the MPL was not distributed with this file, You can
  * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
  * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
- *
+ * <p>
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
  */
@@ -15,6 +15,9 @@ import org.openmrs.api.impl.BaseOpenmrsService;
 import org.openmrs.module.bahmnicustomutil.Item;
 import org.openmrs.module.bahmnicustomutil.api.BahmnicustomutilService;
 import org.openmrs.module.bahmnicustomutil.api.dao.BahmnicustomutilDao;
+import org.openmrs.module.bahmnicustomutil.model.CustomLocation;
+
+import java.util.List;
 
 public class BahmnicustomutilServiceImpl extends BaseOpenmrsService implements BahmnicustomutilService {
 	
@@ -48,5 +51,10 @@ public class BahmnicustomutilServiceImpl extends BaseOpenmrsService implements B
 		}
 		
 		return dao.saveItem(item);
+	}
+	
+	@Override
+	public List<CustomLocation> getLocationByAll() {
+		return dao.getLocationByAll();
 	}
 }

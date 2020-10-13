@@ -3,18 +3,22 @@
  * v. 2.0. If a copy of the MPL was not distributed with this file, You can
  * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
  * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
- *
+ * <p>
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
  */
 package org.openmrs.module.bahmnicustomutil.api.dao;
 
+import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.openmrs.api.db.hibernate.DbSession;
 import org.openmrs.api.db.hibernate.DbSessionFactory;
 import org.openmrs.module.bahmnicustomutil.Item;
+import org.openmrs.module.bahmnicustomutil.model.CustomLocation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository("bahmnicustomutil.BahmnicustomutilDao")
 public class BahmnicustomutilDao {
@@ -34,4 +38,11 @@ public class BahmnicustomutilDao {
 		getSession().saveOrUpdate(item);
 		return item;
 	}
+	
+	public List<CustomLocation> getLocationByAll() {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(CustomLocation.class);
+		return criteria.list();
+	}
+	
+	;
 }
