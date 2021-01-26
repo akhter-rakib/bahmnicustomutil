@@ -23,7 +23,7 @@
 	</diff>
  -->
 	<diff>
-		<version>0.1.21</version>
+		<version>0.1.22</version>
 		<author>Rakib</author>
 		<date>Oct 13th 2020</date>
 		<description>
@@ -34,7 +34,7 @@
 			SELECT l.`location_id` AS id, l.`name`, l.`uuid`, ltn.name AS location_tag_name FROM `location_tag_map` AS lt
 			INNER JOIN `location` AS l ON lt.`location_id`=l.`location_id`
 			INNER JOIN `location_tag` AS ltn ON ltn.`location_tag_id` = lt.location_tag_id
-			WHERE ltn.`name` = 'OpdConsultationRoom' OR  ltn.`name` = 'OpdInternalReferredRoom';
+			WHERE l.`retired` = 0 AND ltn.`retired` = 0 AND (ltn.`name` = 'OpdConsultationRoom' OR  ltn.`name` = 'OpdInternalReferredRoom');
 		</sql>
 	</diff>
 	
